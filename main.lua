@@ -80,17 +80,16 @@ local exercises = {
 
             local dx = speedX * dt
             local dy = speedY * dt
-        
-            -- Move the ball
+
             ball.x = ball.x + dx
             ball.y = ball.y + dy
         
-            -- Check if the ball is about to go out of bounds
+ 
             if ball.x < 0 or ball.x > love.graphics.getWidth() then
-                speedX = -speedX  -- Reverse the horizontal direction
+                speedX = -speedX 
             end
             if ball.y < 0 or ball.y > love.graphics.getHeight() then
-                speedY = -speedY  -- Reverse the vertical direction
+                speedY = -speedY 
             end
         end
     },
@@ -109,8 +108,8 @@ local exercises = {
         stop = 20,
         NoBall = false,
         update = function(dt)
-            local radius = 500  -- Adjust the radius as needed
-            local angularSpeed = math.rad(200) -- Adjust the angular speed as needed (90 degrees per second)
+            local radius = 500 
+            local angularSpeed = math.rad(200)
             angle = angle + angularSpeed * dt
             ball.x = love.graphics.getWidth() / 2 + radius * math.cos(angle)
             ball.y = love.graphics.getHeight() / 2 + radius * math.sin(angle)
@@ -131,8 +130,8 @@ local exercises = {
         stop = 20,
         NoBall = false,
         update = function(dt)
-            local radius = 500  -- Adjust the radius as needed
-            local angularSpeed = -math.rad(200) -- Adjust the angular speed as needed (90 degrees per second)
+            local radius = 500 
+            local angularSpeed = -math.rad(200)
             angle = angle + angularSpeed * dt
             ball.x = love.graphics.getWidth() / 2 + radius * math.cos(angle)
             ball.y = love.graphics.getHeight() / 2 + radius * math.sin(angle)
@@ -158,7 +157,7 @@ local exercises = {
             radius = radius - shrinkSpeed * dt
         
             if radius <= 0 then
-                radius = 500  -- Reset the radius when it becomes zero
+                radius = 500 
             end
         
             ball.x = love.graphics.getWidth() / 2 + radius * math.cos(angle)
@@ -324,9 +323,7 @@ function love.draw()
                 end
                
     
-                
-                -- Draw the ball
-    
+        
                 if currentExercise.NoBall == false then
                     love.graphics.circle("fill", ball.x, ball.y, ball.radius)
                 end
